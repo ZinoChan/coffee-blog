@@ -15,8 +15,16 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    'gatsby-plugin-postcss',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-wordpress`,
+      // options: {
+       
+      //   url: ``,
+      // },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
