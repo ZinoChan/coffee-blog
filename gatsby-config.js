@@ -1,3 +1,13 @@
+let activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+
+console.log(`Using environment config: '${activeEnv}'`)
+
+require("dotenv").config({
+  path: `.env.${activeEnv}`,
+})
+
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -18,13 +28,13 @@ module.exports = {
     'gatsby-plugin-postcss',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-source-wordpress`,
-      // options: {
-       
-      //   url: ``,
-      // },
-    },
+    `gatsby-plugin-fontawesome-css`,
+    // {
+    //   resolve: `gatsby-source-wordpress`,
+    //   options: {
+    //     url: `${process.env.WORDPRESS_URL}`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

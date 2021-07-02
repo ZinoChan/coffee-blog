@@ -1,32 +1,18 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
+import "../styles/header.css"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `black`,
-            textDecoration: `none`,
-          }}
-        >
-          Blog
-        </Link>
-      </h1>
-    </div>
+  <header className="w-full py-4">
+    <nav className="flex items-center justify-between">
+      <div className="logo">
+        <StaticImage src="../images/logo.png" alt="Logo" width={160} />
+      </div>
+      <div className="bars">
+        <div className="bar"></div>
+      </div>
+    </nav>
   </header>
 )
 

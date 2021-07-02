@@ -1,11 +1,14 @@
 import * as React from "react"
+import Hero from "../components/Hero"
 import Layout from "../components/layout"
+import Posts from "../components/Posts"
 import Seo from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
     <Seo title="Home" />
-    <h1 className="text-center text-4xl">Coffee Blog</h1>
+    <Hero />
+    <Posts />
   </Layout>
 )
 
