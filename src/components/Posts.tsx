@@ -4,6 +4,7 @@ import LatestPost from "./LatestPost"
 import PostCard from "./PostCard"
 
 const Posts = ({ data }) => {
+  const posts = data.allWpPost?.nodes
   const sortedPosts = data.allWpPost?.nodes?.sort((a, b) => b.date - a.date)
 
   return (
@@ -13,8 +14,8 @@ const Posts = ({ data }) => {
           <span className="inline-block w-8 h-0.5 bg-black mr-1"></span> All
           Posts
         </h2>
-        {data.allWpPost?.nodes?.map(node => (
-          <Link to="/post" key={node.id}>
+        {posts?.map(node => (
+          <Link to={`/post/${node.slug}`} key={node.id}>
             <PostCard
               image={node?.featuredImage?.node.localFile}
               content={node?.content}

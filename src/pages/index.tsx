@@ -23,6 +23,7 @@ export const query = graphql`
         content
         title
         date
+        slug
         featuredImage {
           node {
             localFile {
