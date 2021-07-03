@@ -6,38 +6,39 @@ import Seo from "../components/seo"
 import { graphql } from "gatsby"
 
 const IndexPage = ({ data }) => {
-  const image = data?.allWpPost?.edges[1].node.featuredImage?.node?.localFile
-
   return (
     <Layout>
       <Seo title="Home" />
       <Hero />
-      <Posts image={image} />
+      <Posts data={data} />
     </Layout>
   )
 }
 
 export const query = graphql`
   query {
-    allWpPost(limit: 5) {
-      edges {
-        node {
-          featuredImage {
-            node {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(width: 600, placeholder: TRACED_SVG)
-                }
+    allWpPost(limit: 8) {
+      nodes {
+        id
+        content
+        title
+        date
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: TRACED_SVG
+                  width: 390
+                  height: 340
+                )
               }
-              title
-              date
             }
           }
-          content
-          author {
-            node {
-              name
-            }
+        }
+        author {
+          node {
+            name
           }
         }
       }
