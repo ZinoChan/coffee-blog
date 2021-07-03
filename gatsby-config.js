@@ -29,12 +29,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-fontawesome-css`,
-    // {
-    //   resolve: `gatsby-source-wordpress`,
-    //   options: {
-    //     url: `${process.env.WORDPRESS_URL}`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: `${process.env.WORDPRESS_URL}`,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

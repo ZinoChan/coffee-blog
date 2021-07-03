@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import React from "react"
 import LatestPost from "./LatestPost"
 import PostCard from "./PostCard"
@@ -10,7 +11,9 @@ const Posts = () => {
           <span className="inline-block w-8 h-0.5 bg-black mr-1"></span> All
           Posts
         </h2>
-        <PostCard />
+        <Link to="/post">
+          <PostCard />
+        </Link>
         <PostCard />
         <PostCard />
       </div>
