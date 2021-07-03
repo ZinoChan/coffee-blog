@@ -3,7 +3,7 @@ import React from "react"
 import LatestPost from "./LatestPost"
 import PostCard from "./PostCard"
 
-const Posts = () => {
+const Posts = ({ image }) => {
   return (
     <section className="py-28 relative grid grid-cols-3 gap-8">
       <div className="col-span-2">
@@ -12,10 +12,8 @@ const Posts = () => {
           Posts
         </h2>
         <Link to="/post">
-          <PostCard />
+          <PostCard image={image} />
         </Link>
-        <PostCard />
-        <PostCard />
       </div>
       <div>
         <h2 className="font-main font-bold text-2xl mb-6">

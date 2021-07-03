@@ -5,7 +5,6 @@ import {
   faTwitter,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons"
-import { graphql } from "gatsby"
 
 const Hero = () => {
   return (
@@ -54,7 +53,5 @@ const Hero = () => {
     </section>
   )
 }
-
-export const query = graphql``
 
 export default Hero
