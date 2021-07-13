@@ -8,9 +8,9 @@ const Posts = ({ data }) => {
   const sortedPosts = data.allWpPost?.nodes?.sort((a, b) => b.date - a.date)
 
   return (
-    <section className="py-28 relative grid grid-cols-3 gap-8">
-      <div className="col-span-2">
-        <h2 className="font-main font-bold text-2xl mb-6">
+    <section className="py-28 relative grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
+      <div className="lg:col-span-2 md:order-1 order-2">
+        <h2 className="font-main font-bold lg:text-2xl text-xl mb-6">
           <span className="inline-block w-8 h-0.5 bg-black mr-1"></span> All
           Posts
         </h2>
@@ -25,10 +25,11 @@ const Posts = ({ data }) => {
         ))}
       </div>
       <div>
-        <h2 className="font-main font-bold text-2xl mb-6">
+        <h2 className="font-main font-bold lg:text-2xl text-xl mb-6">
           <span className="inline-block w-8 h-0.5 bg-black mr-1"></span>Latest
           Posts
         </h2>
+
         {sortedPosts.slice(0, 3).map(post => (
           <Link to="/post" key={post.id}>
             <LatestPost title={post.title} />

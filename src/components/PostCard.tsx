@@ -5,12 +5,12 @@ const PostCard = ({ image, title, content }) => {
   const img = getImage(image)
 
   return (
-    <div className="flex items-end space-x-4 mb-6">
+    <div className="flex items-end lg:flex-row flex-col lg:space-x-4 mb-6">
       <div className="post-img filter grayscale hover:grayscale-0">
         {!img && <StaticImage src="../images/blog.jpg" alt="Blog Image " />}
         {img && <GatsbyImage image={img} alt="image" />}
       </div>
-      <div className="post-text">
+      <div className="py-4 lg:py-0 lg:px-4">
         <h3 className="font-playfair text-2xl mb-4 font-bold">{title}</h3>
 
         <div

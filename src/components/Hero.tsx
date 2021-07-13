@@ -8,13 +8,13 @@ import {
 
 const Hero = () => {
   return (
-    <section className="py-28 relative">
-      <div className="grid grid-cols-3 gap-8">
-        <div className="col-span-2">
+    <section className="md:py-28 py-20 relative">
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-8">
+        <div className="md:col-span-2">
           <h1 className="text-7xl font-main capitalize mb-6">
             Coffee <br /> blog
           </h1>
-          <p className="ml-16 font-rubik text-md leading-relaxed max-w-screen-sm">
+          <p className="md:ml-16 font-rubik text-md leading-relaxed md:max-w-screen-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum dolores
             amet incidunt, neque saepe vitae minima! Natus ex, et rerum odit eos
             quod, soluta aliquid ut voluptate ipsa veniam mollitia. Cum dolores

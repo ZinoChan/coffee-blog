@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
       <div className="max-w-screen-xl px-4 mx-auto relative z-20">
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
         <main>{children}</main>
-        <footer className="grid grid-cols-3 justify-center py-20">
+        <footer className="grid md:grid-cols-3 grid-cols-2 justify-center py-20">
           <ul className="font-rubik self-center">
             <li>
               <a href="#">Home</a>
@@ -42,7 +42,7 @@ const Layout = ({ children }) => {
               <a href="#">Contact</a>
             </li>
           </ul>
-          <div className="justify-self-center flex justify-between space-y-16 flex-col items-center">
+          <div className="order-1 md:order-2 sm:col-span-1 col-span-2 text-center justify-self-center flex justify-between space-y-16 flex-col items-center">
             <StaticImage src="../images/logo.png" alt="Logo" />
             <p className="text-lg font-rubik font-bold">
               &copy; copyrights 2021 all right reserved
