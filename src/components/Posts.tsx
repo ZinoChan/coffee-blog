@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import React from "react"
 import LatestPost from "./LatestPost"
 import PostCard from "./PostCard"
+import "../styles/posts.css"
 
 const Posts = ({ data }) => {
   const posts = data.allWpPost?.nodes
@@ -9,7 +10,7 @@ const Posts = ({ data }) => {
 
   return (
     <section className="py-28 relative grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
-      <div className="lg:col-span-2 md:order-1 order-2">
+      <div className="lg:col-span-2 all-posts ">
         <h2 className="font-main font-bold lg:text-2xl text-xl mb-6">
           <span className="inline-block w-8 h-0.5 bg-black mr-1"></span> All
           Posts
@@ -31,7 +32,7 @@ const Posts = ({ data }) => {
         </h2>
 
         {sortedPosts.slice(0, 3).map(post => (
-          <Link to="/post" key={post.id}>
+          <Link to={`/post/${post.slug}`} key={post.id}>
             <LatestPost title={post.title} />
           </Link>
         ))}

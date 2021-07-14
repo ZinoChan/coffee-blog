@@ -11,7 +11,7 @@ const Hero = () => {
     <section className="md:py-28 py-20 relative">
       <div className="grid md:grid-cols-3 grid-cols-1 gap-8">
         <div className="md:col-span-2">
-          <h1 className="text-7xl font-main capitalize mb-6">
+          <h1 className=" md:text-7xl text-5xl font-main capitalize mb-6">
             Coffee <br /> blog
           </h1>
           <p className="md:ml-16 font-rubik text-md leading-relaxed md:max-w-screen-sm">

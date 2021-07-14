@@ -42,13 +42,13 @@ const Layout = ({ children }) => {
               <a href="#">Contact</a>
             </li>
           </ul>
-          <div className="order-1 md:order-2 sm:col-span-1 col-span-2 text-center justify-self-center flex justify-between space-y-16 flex-col items-center">
+          <div className="md:order-2 order-3 sm:col-span-1 col-span-2 text-center justify-self-center flex justify-between space-y-16 flex-col items-center">
             <StaticImage src="../images/logo.png" alt="Logo" />
             <p className="text-lg font-rubik font-bold">
               &copy; copyrights 2021 all right reserved
             </p>
           </div>
-          <ul className="justify-self-end self-center font-rubik">
+          <ul className="justify-self-end md:order-3 order-2 self-center font-rubik">
             <li>
               <a href="#">Facebook</a>
             </li>
