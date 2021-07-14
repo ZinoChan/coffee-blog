@@ -2,27 +2,65 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
 import "../styles/header.css"
+import { Squeeze as Hamburger } from "hamburger-react"
+import { useState } from "react"
+import { graphql, Link, useStaticQuery } from "gatsby"
 
-const Header = ({ siteTitle, logo }) => (
-  <header className="w-full py-4">
-    <nav className="flex items-center justify-between">
-      <div className="logo">
-        {/* <StaticImage src="../images/logo.png" alt="Logo" width={160} /> */}
-        {logo && <GatsbyImage image={logo} alt="image" />}
-      </div>
-      <div className="bars">
-        <div className="bar"></div>
-      </div>
-    </nav>
-  </header>
-)
+const Header = ({ siteTitle, logo }) => {
+  const [isOpen, setOpen] = useState(false)
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+  const data = useStaticQuery(graphql`
+    query headerData {
+      allWpPage {
+        edges {
+          node {
+            title
+            id
+            uri
+          }
+        }
+      }
+    }
+  `)
 
-Header.defaultProps = {
-  siteTitle: ``,
+  return (
+    <header className="w-full py-4">
+      <nav className="flex items-center justify-between">
+        <div className="logo relative z-50">
+          {/* <StaticImage src="../images/logo.png" alt="Logo" width={160} /> */}
+          {logo && <GatsbyImage image={logo} alt="image" />}
+        </div>
+        <button onClick={() => setOpen(!isOpen)} className="relative z-50">
+          <Hamburger size={32} toggled={isOpen} toggle={setOpen} />
+        </button>
+        <ul
+          className={`
+        ${isOpen ? "opacity-100" : "opacity-0"}
+        transition-all duration-300 w-screen
+         h-screen bg-rafia fixed top-0 left-0 
+         z-10 flex flex-col items-center 
+         justify-center space-y-12`}
+        >
+          {data.allWpPage?.edges?.map(({ node }, index) => (
+            <li
+              key={node.id}
+              className={`
+            transition-all duration-500 delay-${
+              index === 0 ? 100 : index * 150
+            } 
+            transform ${
+              isOpen ? "translate-y-0 opacity-100" : "translate-y-100 opacity-0"
+            }`}
+            >
+              <Link to={node.uri} className="text-3xl  font-bold font-main">
+                {node.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  )
 }
 
 export default Header
