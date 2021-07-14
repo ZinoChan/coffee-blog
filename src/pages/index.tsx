@@ -9,7 +9,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Seo title="Home" />
-      <Hero />
+      <Hero data={data.allWp} />
       <Posts data={data} />
     </Layout>
   )
@@ -17,6 +17,16 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
+    allWp {
+      edges {
+        node {
+          allSettings {
+            generalSettingsTitle
+            generalSettingsDescription
+          }
+        }
+      }
+    }
     allWpPost(limit: 8) {
       nodes {
         id

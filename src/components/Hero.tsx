@@ -6,22 +6,20 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons"
 
-const Hero = () => {
+const Hero = ({ data }) => {
+  const title = data.edges[0]?.node?.allSettings?.generalSettingsTitle.split(
+    " "
+  )
+
   return (
     <section className="md:py-28 py-20 relative">
       <div className="grid md:grid-cols-3 grid-cols-1 gap-8">
         <div className="md:col-span-2">
           <h1 className=" md:text-7xl text-5xl font-main capitalize mb-6">
-            Coffee <br /> blog
+            {title && title[0]} <br /> {title && title[1]}
           </h1>
           <p className="md:ml-16 font-rubik text-md leading-relaxed md:max-w-screen-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum dolores
-            amet incidunt, neque saepe vitae minima! Natus ex, et rerum odit eos
-            quod, soluta aliquid ut voluptate ipsa veniam mollitia. Cum dolores
-            amet incidunt, neque saepe vitae minima! Natus ex, et rerum odit eos
-            quod, soluta aliquid ut voluptate ipsa veniam mollitia. Cum dolores
-            amet incidunt, neque saepe vitae minima! Natus ex, et rerum odit eos
-            quod, soluta aliquid ut voluptate ipsa veniam mollitia.
+            {data.edges[0]?.node?.allSettings?.generalSettingsDescription}
           </p>
         </div>
         <div>

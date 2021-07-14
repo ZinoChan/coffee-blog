@@ -2,13 +2,24 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import "../styles/layout.css"
-import { StaticImage } from "gatsby-plugin-image"
+import { getImage, StaticImage } from "gatsby-plugin-image"
 
 import Header from "./header"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
+      allWpMediaItem(filter: { title: { eq: "logo" } }) {
+        edges {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(placeholder: TRACED_SVG, width: 160)
+              }
+            }
+          }
+        }
+      }
       site {
         siteMetadata {
           title
@@ -16,6 +27,8 @@ const Layout = ({ children }) => {
       }
     }
   `)
+
+  const logo = getImage(data.allWpMediaItem.edges[0]?.node?.localFile)
 
   return (
     <div className="bg-main relative overflow-x-hidden">
@@ -25,7 +38,10 @@ const Layout = ({ children }) => {
         <div className="line h-full  h-full bg-white-rock"></div>
       </div>
       <div className="max-w-screen-xl px-4 mx-auto relative z-20">
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+        <Header
+          siteTitle={data.site.siteMetadata?.title || `Title`}
+          logo={logo}
+        />
         <main>{children}</main>
         <footer className="grid md:grid-cols-3 grid-cols-2 justify-center py-20">
           <ul className="font-rubik self-center">
