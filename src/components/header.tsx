@@ -1,6 +1,6 @@
 import * as React from "react"
-import PropTypes from "prop-types"
-import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
+
+import { GatsbyImage } from "gatsby-plugin-image"
 import "../styles/header.css"
 import { Squeeze as Hamburger } from "hamburger-react"
 import { useState } from "react"
@@ -35,10 +35,10 @@ const Header = ({ siteTitle, logo }) => {
         </button>
         <ul
           className={`
-        ${isOpen ? "opacity-100" : "opacity-0"}
-        transition-all duration-300 w-screen
+        ${isOpen ? "opacity-100 flex" : "opacity-0 hidden"}
+        transition-all duration-300 z-10 w-screen
          h-screen bg-rafia fixed top-0 left-0 
-         z-10 flex flex-col items-center 
+         flex flex-col items-center 
          justify-center space-y-12`}
         >
           {data.allWpPage?.edges?.map(({ node }, index) => (
