@@ -5,8 +5,12 @@ import "../styles/layout.css"
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 
 import Header from "./header"
+import Loader from "./Loader"
+import { useState } from "react"
 
 const Layout = ({ children }) => {
+  const [loading, setLoading] = useState(true)
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       wpMediaItem(title: { eq: "logo" }) {
@@ -28,6 +32,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="bg-main min-h-screen relative overflow-x-hidden">
+      <Loader />
       <div className="grid grid-cols-3 fixed z-10 top-0 h-screen justify-center w-screen">
         <div className="line h-full  h-full bg-white-rock"></div>
         <div className="line h-full  h-full bg-white-rock"></div>
