@@ -13,7 +13,7 @@
 }
 
 .loading-bar {
-  animation: fill 3s linear;
+  animation: fill 2s linear;
 }
 
 @keyframes fill {

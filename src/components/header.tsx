@@ -5,6 +5,7 @@ import "../styles/header.css"
 import { Squeeze as Hamburger } from "hamburger-react"
 import { useState } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
+import { motion } from "framer-motion"
 
 const Header = ({ siteTitle, logo }) => {
   const [isOpen, setOpen] = useState(false)
@@ -24,7 +25,16 @@ const Header = ({ siteTitle, logo }) => {
   `)
 
   return (
-    <header className="w-full py-4">
+    <motion.header
+      initial={{ opacity: 0, y: -180 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        ease: [0.6, 0.01, -0.05, 0.95],
+        duration: 1,
+        delay: 2,
+      }}
+      className="w-full py-4"
+    >
       <nav className="flex items-center justify-between">
         <div className="logo relative z-50">
           {/* <StaticImage src="../images/logo.png" alt="Logo" width={160} /> */}
@@ -61,7 +71,7 @@ const Header = ({ siteTitle, logo }) => {
           ))}
         </ul>
       </nav>
-    </header>
+    </motion.header>
   )
 }
 

@@ -3,13 +3,11 @@ import "../styles/loader.css"
 import { useState } from "react"
 import { useEffect } from "react"
 
-const Loader = () => {
-  const [loading, setLoading] = useState(true)
-
+const Loader = ({ setLoading, loading }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 4000)
+    }, 2500)
 
     return () => clearTimeout(timer)
   })
