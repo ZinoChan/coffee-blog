@@ -6,6 +6,8 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons"
 import { motion } from "framer-motion"
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons"
+import ScrollSvg from "./ScrollSvg"
 
 const hero = {
   animate: {
@@ -117,13 +119,18 @@ const Hero = ({ data }) => {
           </motion.span>
         </div>
       </motion.div>
-      <div className="absolute bottom-0 flex justify-between w-full">
-        <div className="flex items-center space-x-4 text-chicago text-sm">
-          <FontAwesomeIcon icon={faFacebookF} />
-          <FontAwesomeIcon icon={faTwitter} />
-          <FontAwesomeIcon icon={faInstagram} />
+      <div className="absolute bottom-0 flex items-center justify-between w-full">
+        <button className="font-rubik font-bold capitalize bg-rafia py-2 px-6 text-chicago text-md">
+          Explore
+        </button>
+        <div className="relative scroll">
+          <div className="circle-svg">
+            <ScrollSvg />
+          </div>
+          <div className="absolute transform top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
+            <FontAwesomeIcon icon={faArrowDown} />
+          </div>
         </div>
-        <div className="scroll">scroll</div>
       </div>
     </section>
   )
