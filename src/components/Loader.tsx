@@ -16,13 +16,18 @@ const Loader = () => {
 
   return (
     <div
-      className={`flex items-center justify-center fixed top-0 left-0 h-screen w-screen z-50 bg-main 
-        ${!loading && "hidden"} 
+      className={`flex items-center justify-center fixed top-0 left-0 h-screen w-screen z-50 bg-rafia 
+        ${!loading && "hide"} 
       `}
     >
-      <h1 className="font-bold font-main text-white-rock  text-6xl capitalize loading">
-        coffee blog
-      </h1>
+      <div className="loading-content">
+        <h1 className="font-bold font-main text-chicago  text-6xl capitalize loading mb-8">
+          coffee blog
+        </h1>
+        <div className=" mb-6 w-60 mx-auto  rounded-full h-3 border-2 border-chicago">
+          <div className="loading-bar h-full  bg-chicago "></div>
+        </div>
+      </div>
     </div>
   )
 }

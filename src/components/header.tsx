@@ -35,9 +35,9 @@ const Header = ({ siteTitle, logo }) => {
         </button>
         <ul
           className={`
-        ${isOpen ? "opacity-100 flex" : "opacity-0 hidden"}
+        ${isOpen ? "opacity-100 h-screen" : "opacity-0 h-0"}
         transition-all duration-300 z-10 w-screen
-         h-screen bg-rafia fixed top-0 left-0 
+         overflow-hidden bg-rafia fixed top-0 left-0 
          flex flex-col items-center 
          justify-center space-y-12`}
         >
@@ -49,7 +49,9 @@ const Header = ({ siteTitle, logo }) => {
               index === 0 ? 100 : index * 150
             } 
             transform ${
-              isOpen ? "translate-y-0 opacity-100" : "translate-y-100 opacity-0"
+              isOpen
+                ? "translate-y-0 opacity-100"
+                : "-translate-y-100 opacity-0"
             }`}
             >
               <Link to={node.uri} className="text-3xl  font-bold font-main">
