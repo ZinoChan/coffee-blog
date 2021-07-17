@@ -31,7 +31,7 @@ const letterAnimation = {
   },
 }
 
-const slideUp = {
+export const slideUp = {
   initial: { opacity: 0, y: 80 },
   animate: {
     opacity: 1,
