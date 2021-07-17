@@ -3,9 +3,11 @@ import React from "react"
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 
-const ScrollReavel = ({ children, variants, custom = null }) => {
+const ScrollReveal = ({ children, variants, custom = null }) => {
   const controls = useAnimation()
-  const [ref, inView] = useInView()
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+  })
 
   useEffect(() => {
     if (inView) {
@@ -26,4 +28,4 @@ const ScrollReavel = ({ children, variants, custom = null }) => {
   )
 }
 
-export default ScrollReavel
+export default ScrollReveal

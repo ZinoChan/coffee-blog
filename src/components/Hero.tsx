@@ -8,6 +8,7 @@ import {
 import { motion } from "framer-motion"
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons"
 import ScrollSvg from "./ScrollSvg"
+import { slideToLeft, slideToRight } from "./PostCard"
 
 const hero = {
   animate: {
@@ -77,23 +78,17 @@ const Hero = ({ data }) => {
         <div>
           <div className="flex space-x-4 items-center mb-4">
             <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                ease: [0.6, 0.01, -0.05, 0.95],
-                duration: 1,
-                delay: 1.9,
-              }}
+              variants={slideToRight}
+              initial="initial"
+              animate="animate"
+              custom={1.9}
               className="bg-rafia w-16 h-16 rounded"
             ></motion.div>
             <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                ease: [0.6, 0.01, -0.05, 0.95],
-                duration: 1,
-                delay: 1.9,
-              }}
+              variants={slideToLeft}
+              initial="initial"
+              animate="animate"
+              custom={1.9}
             >
               <h4 className="font-rubik font-bold text-md">Zino chan</h4>
               <h3 className="font-rubik  text-sm">Author</h3>
@@ -120,17 +115,29 @@ const Hero = ({ data }) => {
         </div>
       </motion.div>
       <div className="absolute bottom-0 flex items-center justify-between w-full">
-        <button className="font-rubik font-bold capitalize bg-rafia py-2 px-6 text-chicago text-md">
+        <motion.button
+          variants={slideToRight}
+          initial="initial"
+          animate="animate"
+          custom={2}
+          className="font-rubik font-bold capitalize bg-rafia py-2 px-6 text-chicago text-md"
+        >
           Explore
-        </button>
-        <div className="relative scroll">
+        </motion.button>
+        <motion.div
+          variants={slideToLeft}
+          initial="initial"
+          animate="animate"
+          custom={2}
+          className="relative scroll"
+        >
           <div className="circle-svg">
             <ScrollSvg />
           </div>
           <div className="absolute transform top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
             <FontAwesomeIcon icon={faArrowDown} />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

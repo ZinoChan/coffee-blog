@@ -1,7 +1,7 @@
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
-import { slideUp } from "./Hero"
-import ScrollReavel from "./ScrollReavel"
+
+import ScrollReveal from "./ScrollReveal"
 
 export const slideToLeft = {
   initial: { opacity: 0, x: 60 },
@@ -34,13 +34,13 @@ const PostCard = ({ image, title, content }) => {
 
   return (
     <div className="flex items-end lg:flex-row flex-col lg:space-x-4 mb-6">
-      <ScrollReavel variants={slideToRight} custom={0.5}>
+      <ScrollReveal variants={slideToRight} custom={0.5}>
         <div className="post-img filter grayscale hover:grayscale-0">
           {!img && <StaticImage src="../images/blog.jpg" alt="Blog Image " />}
           {img && <GatsbyImage image={img} alt="image" />}
         </div>
-      </ScrollReavel>
-      <ScrollReavel variants={slideToLeft} custom={0.5}>
+      </ScrollReveal>
+      <ScrollReveal variants={slideToLeft} custom={0.5}>
         <div className="py-4 lg:py-0 lg:px-4">
           <h3 className="font-playfair text-2xl mb-4 font-bold">{title}</h3>
 
@@ -54,7 +54,7 @@ const PostCard = ({ image, title, content }) => {
             Read More
           </span>
         </div>
-      </ScrollReavel>
+      </ScrollReveal>
     </div>
   )
 }
