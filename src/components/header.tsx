@@ -36,10 +36,12 @@ const Header = ({ siteTitle, logo }) => {
       className="w-full py-4"
     >
       <nav className="flex items-center justify-between">
-        <div className="logo relative z-50">
-          {/* <StaticImage src="../images/logo.png" alt="Logo" width={160} /> */}
-          {logo && <GatsbyImage image={logo} alt="image" />}
-        </div>
+        <Link to="/">
+          <div className="logo relative z-50">
+            {/* <StaticImage src="../images/logo.png" alt="Logo" width={160} /> */}
+            {logo && <GatsbyImage image={logo} alt="image" />}
+          </div>
+        </Link>
         <button onClick={() => setOpen(!isOpen)} className="relative z-50">
           <Hamburger size={32} toggled={isOpen} toggle={setOpen} />
         </button>
