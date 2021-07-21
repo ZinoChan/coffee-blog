@@ -34,13 +34,13 @@ const PostCard = ({ image, title, content }) => {
 
   return (
     <div className="flex items-end lg:flex-row flex-col lg:space-x-4 mb-6">
-      <ScrollReveal variants={slideToRight} custom={0.5}>
+      <ScrollReveal variants={slideToRight} custom={1.5}>
         <div className="post-img filter grayscale hover:grayscale-0">
           {!img && <StaticImage src="../images/blog.jpg" alt="Blog Image " />}
           {img && <GatsbyImage image={img} alt="image" />}
         </div>
       </ScrollReveal>
-      <ScrollReveal variants={slideToLeft} custom={0.5}>
+      <ScrollReveal variants={slideToLeft} custom={1}>
         <div className="py-4 lg:py-0 lg:px-4">
           <h3 className="font-playfair text-2xl mb-4 font-bold">{title}</h3>
 

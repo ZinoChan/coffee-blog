@@ -11,7 +11,10 @@ const Posts = ({ data }) => {
   const sortedPosts = data.allWpPost?.nodes?.sort((a, b) => b.date - a.date)
 
   return (
-    <section className="py-28 mt-20 relative grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
+    <section
+      id="posts"
+      className="py-28 mt-20 relative grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8"
+    >
       <div className="lg:col-span-2 all-posts ">
         <ScrollReveal variants={slideUp} custom={0.4}>
           <h2 className="font-main font-bold lg:text-2xl text-xl mb-6">

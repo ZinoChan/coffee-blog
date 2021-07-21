@@ -7,6 +7,7 @@ import ScrollSvg from "./ScrollSvg"
 import { slideToLeft, slideToRight } from "./PostCard"
 import Loader from "./Loader"
 import { useState } from "react"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 const hero = {
   animate: {
@@ -120,6 +121,7 @@ const Hero = ({ data }) => {
           <div className="absolute bottom-0 flex items-center justify-between w-full">
             <motion.button
               variants={slideToRight}
+              onClick={() => scrollTo("#posts")}
               initial="initial"
               animate="animate"
               custom={2}
@@ -127,12 +129,14 @@ const Hero = ({ data }) => {
             >
               Explore
             </motion.button>
+
             <motion.div
+              onClick={() => scrollTo("#posts")}
               variants={slideToLeft}
               initial="initial"
               animate="animate"
               custom={2}
-              className="relative scroll"
+              className="relative scroll cursor-pointer"
             >
               <div className="circle-svg">
                 <ScrollSvg />

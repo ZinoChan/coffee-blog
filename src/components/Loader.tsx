@@ -15,7 +15,7 @@ const Loader = ({ setLoading, loading }) => {
   return (
     <div
       className={`flex items-center justify-center fixed top-0 left-0 h-screen w-screen z-50 bg-main 
-        ${!loading && "hide"} 
+        ${!loading && "hidden"} 
       `}
     >
       {/* <div className="loading-content">
